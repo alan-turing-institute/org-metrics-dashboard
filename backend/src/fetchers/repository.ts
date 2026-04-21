@@ -30,9 +30,6 @@ export const addRepositoriesToResult: Fetcher = async (
           isArchived
           hasIssuesEnabled
           hasDiscussionsEnabled
-          projectsV2 {
-            totalCount
-          }
           discussions {
             totalCount
           }
@@ -40,9 +37,6 @@ export const addRepositoriesToResult: Fetcher = async (
             name
           }
           watchers {
-            totalCount
-          }
-          collaborators {
             totalCount
           }
           repositoryTopics(first: 20) {
@@ -87,9 +81,9 @@ export const addRepositoriesToResult: Fetcher = async (
             issuesEnabled: repo.hasIssuesEnabled,
             projectsEnabled: false,
             discussionsEnabled: repo.hasDiscussionsEnabled,
-            collaboratorsCount: repo.collaborators?.totalCount || 0,
+            collaboratorsCount: 0,
             projectsCount: 0,
-            projectsV2Count: repo.projectsV2.totalCount,
+            projectsV2Count: 0,
           } as RepositoryResult,
         };
       },
