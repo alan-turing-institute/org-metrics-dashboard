@@ -17,7 +17,7 @@ const queryForDiscussions = async (octokit: CustomOctokit, config: Config) => {
             }
             nodes {
               name
-              discussions {
+              discussions(first: 1) {
                 totalCount
               }
             }

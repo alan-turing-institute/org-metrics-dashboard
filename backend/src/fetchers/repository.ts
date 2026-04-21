@@ -30,7 +30,7 @@ export const addRepositoriesToResult: Fetcher = async (
           isArchived
           hasIssuesEnabled
           hasDiscussionsEnabled
-          discussions {
+          discussions(first: 1) {
             totalCount
           }
           licenseInfo {

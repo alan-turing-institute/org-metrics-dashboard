@@ -40,25 +40,25 @@ const getIssueAndPrData = async (octokit: CustomOctokit, config: Config) => {
         }
         nodes {
           name
-          totalIssues: issues {
+          totalIssues: issues(first: 1) {
             totalCount
           }
-          closedIssues: issues(states:CLOSED) {
+          closedIssues: issues(first: 1, states:CLOSED) {
             totalCount
           }
-          openIssues: issues(states:OPEN) {
+          openIssues: issues(first: 1, states:OPEN) {
             totalCount
           }
-          openPullRequests: pullRequests(states:OPEN) {
+          openPullRequests: pullRequests(first: 1, states:OPEN) {
             totalCount
           }
-          totalPullRequests: pullRequests {
+          totalPullRequests: pullRequests(first: 1) {
             totalCount
           }
-          closedPullRequests: pullRequests(states:CLOSED) {
+          closedPullRequests: pullRequests(first: 1, states:CLOSED) {
             totalCount
           }
-          mergedPullRequests: pullRequests(states:MERGED) {
+          mergedPullRequests: pullRequests(first: 1, states:MERGED) {
             totalCount
           }
         }
