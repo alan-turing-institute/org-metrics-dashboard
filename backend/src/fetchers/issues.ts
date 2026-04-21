@@ -32,7 +32,7 @@ const getIssueAndPrData = async (octokit: CustomOctokit, config: Config) => {
     `
   query($cursor: String, $organization: String!) {
     organization(login:$organization){
-      repositories(privacy:PUBLIC, first:100, isFork:false, isArchived:false, after: $cursor) {
+      repositories(privacy:PUBLIC, first:25, isFork:false, isArchived:false, after: $cursor) {
         totalCount
         pageInfo {
           hasNextPage
