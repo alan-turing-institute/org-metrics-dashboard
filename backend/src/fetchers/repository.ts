@@ -29,24 +29,14 @@ export const addRepositoriesToResult: Fetcher = async (
           isFork
           isArchived
           hasIssuesEnabled
-          hasProjectsEnabled
           hasDiscussionsEnabled
-          projects {
-            totalCount
-          }
-          projectsV2 {
-            totalCount
-          }
-          discussions {
+          discussions(first: 1) {
             totalCount
           }
           licenseInfo {
             name
           }
           watchers {
-            totalCount
-          }
-          collaborators {
             totalCount
           }
           repositoryTopics(first: 20) {
@@ -89,11 +79,11 @@ export const addRepositoriesToResult: Fetcher = async (
             watchersCount: repo.watchers.totalCount,
             starsCount: repo.stargazerCount,
             issuesEnabled: repo.hasIssuesEnabled,
-            projectsEnabled: repo.hasProjectsEnabled,
+            projectsEnabled: false,
             discussionsEnabled: repo.hasDiscussionsEnabled,
-            collaboratorsCount: repo.collaborators?.totalCount || 0,
-            projectsCount: repo.projects.totalCount,
-            projectsV2Count: repo.projectsV2.totalCount,
+            collaboratorsCount: 0,
+            projectsCount: 0,
+            projectsV2Count: 0,
           } as RepositoryResult,
         };
       },
