@@ -29,11 +29,7 @@ export const addRepositoriesToResult: Fetcher = async (
           isFork
           isArchived
           hasIssuesEnabled
-          hasProjectsEnabled
           hasDiscussionsEnabled
-          projects {
-            totalCount
-          }
           projectsV2 {
             totalCount
           }
@@ -89,10 +85,10 @@ export const addRepositoriesToResult: Fetcher = async (
             watchersCount: repo.watchers.totalCount,
             starsCount: repo.stargazerCount,
             issuesEnabled: repo.hasIssuesEnabled,
-            projectsEnabled: repo.hasProjectsEnabled,
+            projectsEnabled: false,
             discussionsEnabled: repo.hasDiscussionsEnabled,
             collaboratorsCount: repo.collaborators?.totalCount || 0,
-            projectsCount: repo.projects.totalCount,
+            projectsCount: 0,
             projectsV2Count: repo.projectsV2.totalCount,
           } as RepositoryResult,
         };
